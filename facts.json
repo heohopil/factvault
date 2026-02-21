@@ -1,0 +1,242 @@
+[
+  {
+    "id": 1,
+    "cat": "history",
+    "catLabel": "역사/문화",
+    "title": "피라미드 건설 당시 매머드가 살아있었다",
+    "hookKR": "피라미드 지을 때 매머드가 살아있었다 — 이거 실화임?",
+    "hookEN": "When the pyramids were built, woolly mammoths were still alive. Wait, WHAT?",
+    "source": "historyhit.com",
+    "sourceUrl": "https://www.historyhit.com/amazing-historical-facts-figures-and-fascinating-finds/"
+  },
+  {
+    "id": 2,
+    "cat": "history",
+    "catLabel": "역사/문화",
+    "title": "옥스퍼드 대학교는 아즈텍 제국보다 200년 더 오래됐다",
+    "hookKR": "옥스퍼드 대학이 아즈텍 제국보다 200년 더 오래됐다는 사실 알고 있었어?",
+    "hookEN": "Oxford University is older than the entire Aztec Empire — by over 200 years",
+    "source": "ef.edu",
+    "sourceUrl": "https://www.ef.edu/blog/language/50-unbelievable-facts-about-the-world/"
+  },
+  {
+    "id": 3,
+    "cat": "history",
+    "catLabel": "역사/문화",
+    "title": "세계 최단 전쟁 — 영국 vs 잔지바르, 38분",
+    "hookKR": "역사상 가장 짧은 전쟁 — 단 38분 만에 끝났다",
+    "hookEN": "The shortest war in history lasted just 38 minutes — and only 1 soldier got hurt",
+    "source": "historyhit.com",
+    "sourceUrl": "https://www.historyhit.com/amazing-historical-facts-figures-and-fascinating-finds/"
+  },
+  {
+    "id": 4,
+    "cat": "history",
+    "catLabel": "역사/문화",
+    "title": "클레오파트라는 이집트인이 아니었다 — 그리스계",
+    "hookKR": "이집트의 상징 클레오파트라, 사실 이집트인이 아니었다",
+    "hookEN": "Cleopatra wasn't Egyptian — she was actually Greek",
+    "source": "parade.com",
+    "sourceUrl": "https://parade.com/1099930/marynliles/history-facts/"
+  },
+  {
+    "id": 5,
+    "cat": "history",
+    "catLabel": "역사/문화",
+    "title": "1차대전 중 프랑스는 독일을 속이기 위해 가짜 파리를 건설했다",
+    "hookKR": "1차 세계대전 중 프랑스가 가짜 파리를 실제로 만들었다",
+    "hookEN": "France built a fake Paris during WWI — complete with fake streets and a fake train station",
+    "source": "thefactsite.com",
+    "sourceUrl": "https://www.thefactsite.com/100-history-facts/"
+  },
+  {
+    "id": 6,
+    "cat": "history",
+    "catLabel": "역사/문화",
+    "title": "영국 2차대전 탱크에는 홍차 끓이는 보일러가 내장돼 있었다",
+    "hookKR": "영국 탱크 안에 홍차 끓이는 보일러가 진짜 있다",
+    "hookEN": "British tanks had built-in kettles for making tea — even in the middle of battle",
+    "source": "thefactsite.com",
+    "sourceUrl": "https://www.thefactsite.com/100-history-facts/"
+  },
+  {
+    "id": 7,
+    "cat": "history",
+    "catLabel": "역사/문화",
+    "title": "케첩은 1830년대에 소화제로 약국에서 팔렸다",
+    "hookKR": "1830년대엔 케첩이 약국에서 팔렸다 — 소화제로",
+    "hookEN": "Ketchup was sold as medicine in the 1830s — for liver disease and indigestion",
+    "source": "parade.com",
+    "sourceUrl": "https://parade.com/1099930/marynliles/history-facts/"
+  },
+  {
+    "id": 8,
+    "cat": "brand",
+    "catLabel": "사람 이름 브랜드",
+    "title": "람보르기니 — 페라리에게 무시당한 트랙터 회사 사장이 만든 차",
+    "hookKR": "람보르기니가 트랙터 회사에서 시작했다고? 이게 다 페라리 때문임",
+    "hookEN": "Lamborghini was created because Ferrari's founder insulted a tractor manufacturer",
+    "source": "Wikipedia — Ferruccio Lamborghini",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Ferruccio_Lamborghini"
+  },
+  {
+    "id": 9,
+    "cat": "brand",
+    "catLabel": "사람 이름 브랜드",
+    "title": "나이키 로고(스우시)는 대학생이 35달러 받고 만들었다",
+    "hookKR": "나이키 로고가 35달러짜리였다고? 그리고 창업자는 '별로'라고 했음",
+    "hookEN": "The Nike Swoosh was made by a student for $35 — and the founder said 'I don't love it'",
+    "source": "Wikipedia — Swoosh",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Swoosh"
+  },
+  {
+    "id": 10,
+    "cat": "brand",
+    "catLabel": "사람 이름 브랜드",
+    "title": "레고(LEGO)는 덴마크어로 '잘 논다'의 줄임말, 원래 나무 장난감 회사",
+    "hookKR": "레고가 원래 나무 장난감 회사였다고? 이름 뜻도 몰랐지?",
+    "hookEN": "LEGO means 'play well' in Danish — and they originally made wooden toys",
+    "source": "LEGO 공식 히스토리",
+    "sourceUrl": "https://www.lego.com/en-us/history"
+  },
+  {
+    "id": 11,
+    "cat": "brand",
+    "catLabel": "사람 이름 브랜드",
+    "title": "코카콜라 초기 제품에는 실제로 코카인 성분이 들어있었다",
+    "hookKR": "코카콜라에 코카인이 들어있었다고? 이거 실화임",
+    "hookEN": "Coca-Cola originally contained actual cocaine — and was sold as medicine",
+    "source": "history.com",
+    "sourceUrl": "https://www.history.com/news/the-history-of-coca-cola"
+  },
+  {
+    "id": 12,
+    "cat": "brand",
+    "catLabel": "사람 이름 브랜드",
+    "title": "질레트(Gillette) 창업자는 면도기 발명 전 병뚜껑 세일즈맨이었다",
+    "hookKR": "세계 최대 면도기 브랜드 창업자가 원래 병뚜껑 팔던 사람이었다고?",
+    "hookEN": "The founder of Gillette was a traveling bottle cap salesman before inventing the razor",
+    "source": "Wikipedia — King C. Gillette",
+    "sourceUrl": "https://en.wikipedia.org/wiki/King_C._Gillette"
+  },
+  {
+    "id": 13,
+    "cat": "brand",
+    "catLabel": "사람 이름 브랜드",
+    "title": "베스킨라빈스 창업자의 아들은 아이스크림에 반대하는 채식주의 활동가가 됐다",
+    "hookKR": "베스킨라빈스 창업자 아들이 아이스크림을 반대하는 채식주의자가 됐다고?",
+    "hookEN": "The son of Baskin-Robbins' co-founder became an anti-ice cream vegan activist",
+    "source": "Wikipedia — John Robbins",
+    "sourceUrl": "https://en.wikipedia.org/wiki/John_Robbins_(author)"
+  },
+  {
+    "id": 14,
+    "cat": "arch",
+    "catLabel": "특이한 건축",
+    "title": "인도 찬드 바오리 — 1,200년 전 건물인데 내부가 천연 에어컨",
+    "hookKR": "1,200년 전 에어컨도 없던 시대에 천연 냉방이 되는 건물이 있었다고?",
+    "hookEN": "Built 1,200 years ago — this Indian stepwell stays 5°C cooler than outside with no AC",
+    "source": "Wikipedia — Chand Baori",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Chand_Baori"
+  },
+  {
+    "id": 15,
+    "cat": "arch",
+    "catLabel": "특이한 건축",
+    "title": "밀라노 수직 숲(보스코 버티칼레) — 아파트인데 나무 900그루",
+    "hookKR": "아파트인데 숲이야, 숲인데 아파트야? 밀라노의 실제 건물",
+    "hookEN": "This apartment building in Milan has 900 trees and 20,000 plants growing on it",
+    "source": "Boeri Architetti 공식",
+    "sourceUrl": "https://www.stefanoboeriarchitetti.net/en/project/vertical-forest/"
+  },
+  {
+    "id": 16,
+    "cat": "arch",
+    "catLabel": "특이한 건축",
+    "title": "크로아티아 자다르 바다 오르간 — 파도가 치면 음악이 나온다",
+    "hookKR": "바다가 음악을 연주하는 계단이 있다고? 이게 진짜 존재함",
+    "hookEN": "There's a staircase in Croatia where the sea literally plays music — waves included",
+    "source": "Zadar Tourism 공식",
+    "sourceUrl": "https://www.zadar.travel/en/sea-organ"
+  },
+  {
+    "id": 17,
+    "cat": "arch",
+    "catLabel": "특이한 건축",
+    "title": "도쿄 투명 공중화장실 — 낮엔 투명, 잠그면 불투명",
+    "hookKR": "도쿄에 들어가기 전까진 투명한 화장실이 있다고? 이거 실화임",
+    "hookEN": "Tokyo has a public toilet that's completely transparent — until you lock the door",
+    "source": "Tokyo Toilet Project 공식",
+    "sourceUrl": "https://tokyotoilet.jp/en/"
+  },
+  {
+    "id": 18,
+    "cat": "product",
+    "catLabel": "신기한 제품",
+    "title": "셀카봉은 2000년대 발명이 아님 — 1925년에 이미 특허 등록",
+    "hookKR": "셀카봉이 100년 전 발명품이었다고? 진짜임",
+    "hookEN": "The selfie stick was patented in 1925 — almost 100 years before smartphones existed",
+    "source": "Smithsonian Magazine",
+    "sourceUrl": "https://www.smithsonianmag.com/smart-news/the-selfie-stick-was-invented-in-the-1920s-180954891/"
+  },
+  {
+    "id": 19,
+    "cat": "product",
+    "catLabel": "신기한 제품",
+    "title": "포르탈레지(Portaledge) — 수백 미터 절벽에 매달아서 자는 텐트",
+    "hookKR": "절벽에 매달려 자는 텐트가 진짜 팔린다고? 등반가들이 실제로 씀",
+    "hookEN": "This tent hangs off the side of a cliff — and people actually sleep in it hundreds of meters up",
+    "source": "Wikipedia — Portaledge",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Portaledge"
+  },
+  {
+    "id": 20,
+    "cat": "myth",
+    "catLabel": "상식 뒤집기",
+    "title": "나폴레옹은 키가 작지 않았다 — 당시 평균 이상",
+    "hookKR": "나폴레옹이 작다고? 그건 영국이 만든 프로파간다였다",
+    "hookEN": "Napoleon wasn't short — the 'short Napoleon' myth was British propaganda",
+    "source": "history.com",
+    "sourceUrl": "https://www.history.com/news/napoleon-short-height-myth"
+  },
+  {
+    "id": 21,
+    "cat": "myth",
+    "catLabel": "상식 뒤집기",
+    "title": "금붕어 기억력 3초는 거짓 — 실제로는 몇 달 기억",
+    "hookKR": "금붕어 기억력 3초? 그거 거짓말이었음",
+    "hookEN": "Goldfish don't have a 3-second memory — they can actually remember things for months",
+    "source": "BBC News",
+    "sourceUrl": "https://www.bbc.com/news/magazine-32713896"
+  },
+  {
+    "id": 22,
+    "cat": "myth",
+    "catLabel": "상식 뒤집기",
+    "title": "바이킹은 뿔 달린 투구를 쓰지 않았다 — 19세기 그림이 만든 이미지",
+    "hookKR": "바이킹 투구에 뿔이 없었다고? 우리가 속고 있었음",
+    "hookEN": "Vikings never wore horned helmets — that was invented by a 19th century costume designer",
+    "source": "National Geographic",
+    "sourceUrl": "https://www.nationalgeographic.com/history/article/vikings-horned-helmets-myth"
+  },
+  {
+    "id": 23,
+    "cat": "myth",
+    "catLabel": "상식 뒤집기",
+    "title": "타조는 모래에 머리를 박지 않는다 — 완전히 잘못된 상식",
+    "hookKR": "타조가 위험하면 모래에 머리 박는다고? 그거 거짓말임",
+    "hookEN": "Ostriches don't bury their heads in sand — that's completely false",
+    "source": "Snopes",
+    "sourceUrl": "https://www.snopes.com/fact-check/ostrich-head-sand/"
+  },
+  {
+    "id": 24,
+    "cat": "myth",
+    "catLabel": "상식 뒤집기",
+    "title": "영어 알파벳에 원래 'J'가 없었다 — 500년 전에 추가됨",
+    "hookKR": "영어 알파벳이 원래 25개였다고? J가 없었음",
+    "hookEN": "The English alphabet didn't always have the letter J — it was added just 500 years ago",
+    "source": "Mental Floss",
+    "sourceUrl": "https://www.mentalfloss.com/article/56363/dotting-our-i-and-crossing-our-j"
+  }
+]

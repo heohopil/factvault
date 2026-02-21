@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>쇼츠 팩트 DB</title>
+<title>FACT VAULT</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+KR:wght@300;400;500;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -33,14 +33,12 @@
     overflow-x: hidden;
   }
 
-  /* ── HEADER ── */
   header {
     position: relative;
     padding: 80px 40px 60px;
     border-bottom: 1px solid var(--border);
     overflow: hidden;
   }
-
   header::before {
     content: '';
     position: absolute;
@@ -49,7 +47,6 @@
     background: radial-gradient(circle, rgba(255,60,95,0.15) 0%, transparent 70%);
     pointer-events: none;
   }
-
   header::after {
     content: '';
     position: absolute;
@@ -67,49 +64,28 @@
     text-transform: uppercase;
     margin-bottom: 16px;
   }
-
   h1 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: clamp(56px, 8vw, 110px);
     line-height: 0.9;
     letter-spacing: -1px;
-    color: var(--text);
   }
-
-  h1 span {
-    color: var(--accent);
-    display: block;
-  }
-
+  h1 span { color: var(--accent); display: block; }
   .header-sub {
     margin-top: 24px;
     font-size: 14px;
     color: var(--muted);
     max-width: 520px;
     line-height: 1.8;
-    font-weight: 300;
   }
-
-  .stats-row {
-    display: flex;
-    gap: 40px;
-    margin-top: 40px;
-    flex-wrap: wrap;
-  }
-
-  .stat {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-
+  .stats-row { display: flex; gap: 40px; margin-top: 40px; flex-wrap: wrap; }
+  .stat { display: flex; flex-direction: column; gap: 4px; }
   .stat-num {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 40px;
     color: var(--accent2);
     line-height: 1;
   }
-
   .stat-label {
     font-family: 'Space Mono', monospace;
     font-size: 10px;
@@ -118,7 +94,6 @@
     text-transform: uppercase;
   }
 
-  /* ── FILTER BAR ── */
   .filter-bar {
     padding: 24px 40px;
     border-bottom: 1px solid var(--border);
@@ -132,7 +107,6 @@
     backdrop-filter: blur(12px);
     z-index: 100;
   }
-
   .filter-label {
     font-family: 'Space Mono', monospace;
     font-size: 10px;
@@ -141,7 +115,6 @@
     text-transform: uppercase;
     margin-right: 6px;
   }
-
   .filter-btn {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -153,33 +126,15 @@
     font-size: 12px;
     font-weight: 500;
     transition: all 0.15s;
-    letter-spacing: 0.5px;
   }
-
   .filter-btn:hover { border-color: var(--accent); color: var(--text); }
   .filter-btn.active { background: var(--accent); border-color: var(--accent); color: white; }
+  .filter-btn[data-cat="brand"].active  { background: var(--accent2); border-color: var(--accent2); color: #000; }
+  .filter-btn[data-cat="arch"].active   { background: var(--accent3); border-color: var(--accent3); color: #000; }
+  .filter-btn[data-cat="product"].active{ background: var(--tag-product); border-color: var(--tag-product); }
+  .filter-btn[data-cat="myth"].active   { background: var(--tag-myth); border-color: var(--tag-myth); }
 
-  .filter-btn[data-cat="brand"].active { background: var(--accent2); border-color: var(--accent2); color: #000; }
-  .filter-btn[data-cat="arch"].active { background: var(--accent3); border-color: var(--accent3); color: #000; }
-  .filter-btn[data-cat="product"].active { background: var(--tag-product); border-color: var(--tag-product); }
-  .filter-btn[data-cat="myth"].active { background: var(--tag-myth); border-color: var(--tag-myth); }
-
-  /* ── MAIN GRID ── */
-  main {
-    padding: 48px 40px;
-    max-width: 1400px;
-  }
-
-  .section-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 13px;
-    letter-spacing: 5px;
-    color: var(--muted);
-    text-transform: uppercase;
-    margin-bottom: 24px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid var(--border);
-  }
+  main { padding: 48px 40px; max-width: 1400px; }
 
   .cards-grid {
     display: grid;
@@ -188,36 +143,28 @@
     margin-bottom: 60px;
   }
 
-  /* ── CARD ── */
   .card {
     background: var(--surface);
     border: 1px solid var(--border);
     padding: 28px;
     position: relative;
-    cursor: pointer;
+    cursor: default;
     transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
     overflow: hidden;
+    animation: fadeUp 0.4s ease both;
   }
-
   .card::before {
     content: '';
     position: absolute;
     top: 0; left: 0;
     width: 3px; height: 100%;
-    background: var(--cat-color, var(--accent));
+    background: var(--cat-color);
   }
-
   .card:hover {
     transform: translateY(-3px);
-    border-color: var(--cat-color, var(--accent));
+    border-color: var(--cat-color);
     box-shadow: 0 12px 40px rgba(0,0,0,0.4);
   }
-
-  .card[data-cat="history"] { --cat-color: var(--tag-history); }
-  .card[data-cat="brand"]   { --cat-color: var(--tag-brand); }
-  .card[data-cat="arch"]    { --cat-color: var(--tag-arch); }
-  .card[data-cat="product"] { --cat-color: var(--tag-product); }
-  .card[data-cat="myth"]    { --cat-color: var(--tag-myth); }
 
   .card-top {
     display: flex;
@@ -225,43 +172,37 @@
     align-items: flex-start;
     margin-bottom: 14px;
   }
-
   .card-tag {
     font-family: 'Space Mono', monospace;
     font-size: 9px;
     letter-spacing: 2px;
     text-transform: uppercase;
     padding: 4px 10px;
-    border: 1px solid var(--cat-color, var(--accent));
-    color: var(--cat-color, var(--accent));
+    border: 1px solid var(--cat-color);
+    color: var(--cat-color);
   }
-
   .card-num {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 28px;
     color: var(--border);
     line-height: 1;
   }
-
   .card-title {
     font-size: 17px;
     font-weight: 700;
     line-height: 1.4;
     margin-bottom: 12px;
-    color: var(--text);
   }
-
   .card-hook-kr {
     font-size: 12px;
     font-weight: 500;
-    color: var(--cat-color, var(--accent));
+    color: var(--cat-color);
     padding: 8px 12px;
     background: rgba(255,255,255,0.03);
-    border-left: 2px solid var(--cat-color, var(--accent));
+    border-left: 2px solid var(--cat-color);
     margin-bottom: 8px;
     line-height: 1.5;
   }
-
   .card-hook-en {
     font-family: 'Space Mono', monospace;
     font-size: 11px;
@@ -271,7 +212,6 @@
     border-left: 2px solid var(--border);
     line-height: 1.6;
   }
-
   .card-source {
     margin-top: 16px;
     padding-top: 14px;
@@ -283,14 +223,8 @@
     align-items: center;
     gap: 8px;
   }
-
-  .card-source a {
-    color: var(--accent3);
-    text-decoration: none;
-    word-break: break-all;
-  }
+  .card-source a { color: var(--accent3); text-decoration: none; word-break: break-all; }
   .card-source a:hover { text-decoration: underline; }
-
   .source-icon {
     flex-shrink: 0;
     width: 16px; height: 16px;
@@ -298,15 +232,12 @@
     border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
     font-size: 8px;
-    color: var(--muted);
   }
 
-  /* hidden for filter */
   .card.hidden { display: none; }
 
-  /* ── FOOTER ── */
   footer {
-    padding: 40px 40px;
+    padding: 40px;
     border-top: 1px solid var(--border);
     display: flex;
     justify-content: space-between;
@@ -314,50 +245,18 @@
     flex-wrap: wrap;
     gap: 16px;
   }
-
   .footer-left {
     font-family: 'Space Mono', monospace;
     font-size: 11px;
     color: var(--muted);
     letter-spacing: 1px;
   }
+  .footer-note { font-size: 11px; color: var(--muted); }
 
-  .footer-note {
-    font-size: 11px;
-    color: var(--muted);
-    font-weight: 300;
-  }
-
-  /* ── ANIMATION ── */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
     to   { opacity: 1; transform: translateY(0); }
   }
-
-  .card {
-    animation: fadeUp 0.4s ease both;
-  }
-
-  .card:nth-child(1)  { animation-delay: 0.02s }
-  .card:nth-child(2)  { animation-delay: 0.05s }
-  .card:nth-child(3)  { animation-delay: 0.08s }
-  .card:nth-child(4)  { animation-delay: 0.11s }
-  .card:nth-child(5)  { animation-delay: 0.14s }
-  .card:nth-child(6)  { animation-delay: 0.17s }
-  .card:nth-child(7)  { animation-delay: 0.20s }
-  .card:nth-child(8)  { animation-delay: 0.23s }
-  .card:nth-child(9)  { animation-delay: 0.26s }
-  .card:nth-child(10) { animation-delay: 0.29s }
-  .card:nth-child(11) { animation-delay: 0.32s }
-  .card:nth-child(12) { animation-delay: 0.35s }
-  .card:nth-child(13) { animation-delay: 0.38s }
-  .card:nth-child(14) { animation-delay: 0.41s }
-  .card:nth-child(15) { animation-delay: 0.44s }
-  .card:nth-child(16) { animation-delay: 0.47s }
-  .card:nth-child(17) { animation-delay: 0.50s }
-  .card:nth-child(18) { animation-delay: 0.53s }
-  .card:nth-child(19) { animation-delay: 0.56s }
-  .card:nth-child(20) { animation-delay: 0.59s }
 
   @media (max-width: 600px) {
     header, main, footer, .filter-bar { padding-left: 20px; padding-right: 20px; }
@@ -370,9 +269,9 @@
 <body>
 
 <header>
-  <div class="header-label">쇼츠 콘텐츠 DB · v1.0</div>
+  <div class="header-label">FACT VAULT · 알고 보면 놀라운 세상의 이야기</div>
   <h1>FACT<span>VAULT</span></h1>
-  <p class="header-sub">유튜브 쇼츠용 팩트 브레인스토밍 데이터베이스.<br>카테고리별 훅 문구 + 한국어/영어 + 출처 포함.</p>
+  <p class="header-sub">역사, 브랜드, 건축, 발명품 속에 숨어있던<br>진짜 이야기들을 모아둔 곳.</p>
   <div class="stats-row">
     <div class="stat"><span class="stat-num" id="total-count">0</span><span class="stat-label">총 팩트</span></div>
     <div class="stat"><span class="stat-num">5</span><span class="stat-label">카테고리</span></div>
@@ -382,384 +281,78 @@
 
 <div class="filter-bar">
   <span class="filter-label">필터</span>
-  <button class="filter-btn active" data-cat="all" onclick="filter('all', this)">전체</button>
-  <button class="filter-btn" data-cat="history" onclick="filter('history', this)">📜 역사/문화</button>
-  <button class="filter-btn" data-cat="brand" onclick="filter('brand', this)">🏷 사람 이름 브랜드</button>
-  <button class="filter-btn" data-cat="arch" onclick="filter('arch', this)">🏛 특이한 건축</button>
-  <button class="filter-btn" data-cat="product" onclick="filter('product', this)">🛠 신기한 제품</button>
-  <button class="filter-btn" data-cat="myth" onclick="filter('myth', this)">😤 상식 뒤집기</button>
+  <button class="filter-btn active" data-cat="all"     onclick="filter('all',this)">전체</button>
+  <button class="filter-btn" data-cat="history" onclick="filter('history',this)">📜 역사/문화</button>
+  <button class="filter-btn" data-cat="brand"   onclick="filter('brand',this)">🏷 브랜드</button>
+  <button class="filter-btn" data-cat="arch"    onclick="filter('arch',this)">🏛 특이한 건축</button>
+  <button class="filter-btn" data-cat="product" onclick="filter('product',this)">🛠 신기한 제품</button>
+  <button class="filter-btn" data-cat="myth"    onclick="filter('myth',this)">😤 상식 뒤집기</button>
 </div>
 
 <main>
-  <div class="cards-grid" id="grid">
-
-    <!-- ══ 역사/문화 ══ -->
-    <div class="card" data-cat="history">
-      <div class="card-top">
-        <span class="card-tag">역사/문화</span>
-        <span class="card-num">01</span>
-      </div>
-      <div class="card-title">피라미드 건설 당시 매머드가 살아있었다</div>
-      <div class="card-hook-kr">"피라미드 지을 때 매머드가 살아있었다 — 이거 실화임?"</div>
-      <div class="card-hook-en">"When the pyramids were built, woolly mammoths were still alive. Wait, WHAT?"</div>
-      <div class="card-source">
-        <div class="source-icon">↗</div>
-        <a href="https://www.historyhit.com/amazing-historical-facts-figures-and-fascinating-finds/" target="_blank">historyhit.com</a>
-      </div>
-    </div>
-
-    <div class="card" data-cat="history">
-      <div class="card-top">
-        <span class="card-tag">역사/문화</span>
-        <span class="card-num">02</span>
-      </div>
-      <div class="card-title">옥스퍼드 대학교는 아즈텍 제국보다 200년 더 오래됐다</div>
-      <div class="card-hook-kr">"옥스퍼드 대학이 아즈텍 제국보다 200년 더 오래됐다는 사실 알고 있었어?"</div>
-      <div class="card-hook-en">"Oxford University is older than the entire Aztec Empire — by over 200 years"</div>
-      <div class="card-source">
-        <div class="source-icon">↗</div>
-        <a href="https://www.ef.edu/blog/language/50-unbelievable-facts-about-the-world/" target="_blank">ef.edu</a>
-      </div>
-    </div>
-
-    <div class="card" data-cat="history">
-      <div class="card-top">
-        <span class="card-tag">역사/문화</span>
-        <span class="card-num">03</span>
-      </div>
-      <div class="card-title">세계 최단 전쟁 — 영국 vs 잔지바르, 38분</div>
-      <div class="card-hook-kr">"역사상 가장 짧은 전쟁 — 단 38분 만에 끝났다"</div>
-      <div class="card-hook-en">"The shortest war in history lasted just 38 minutes — and only 1 soldier got hurt"</div>
-      <div class="card-source">
-        <div class="source-icon">↗</div>
-        <a href="https://www.historyhit.com/amazing-historical-facts-figures-and-fascinating-finds/" target="_blank">historyhit.com</a>
-      </div>
-    </div>
-
-    <div class="card" data-cat="history">
-      <div class="card-top">
-        <span class="card-tag">역사/문화</span>
-        <span class="card-num">04</span>
-      </div>
-      <div class="card-title">클레오파트라는 이집트인이 아니었다 — 그리스계</div>
-      <div class="card-hook-kr">"이집트의 상징 클레오파트라, 사실 이집트인이 아니었다"</div>
-      <div class="card-hook-en">"Cleopatra wasn't Egyptian — she was actually Greek"</div>
-      <div class="card-source">
-        <div class="source-icon">↗</div>
-        <a href="https://parade.com/1099930/marynliles/history-facts/" target="_blank">parade.com</a>
-      </div>
-    </div>
-
-    <div class="card" data-cat="history">
-      <div class="card-top">
-        <span class="card-tag">역사/문화</span>
-        <span class="card-num">05</span>
-      </div>
-      <div class="card-title">1차대전 중 프랑스는 독일을 속이기 위해 가짜 파리를 건설했다</div>
-      <div class="card-hook-kr">"1차 세계대전 중 프랑스가 가짜 파리를 실제로 만들었다"</div>
-      <div class="card-hook-en">"France built a fake Paris during WWI — complete with fake streets and a fake train station"</div>
-      <div class="card-source">
-        <div class="source-icon">↗</div>
-        <a href="https://www.thefactsite.com/100-history-facts/" target="_blank">thefactsite.com</a>
-      </div>
-    </div>
-
-    <div class="card" data-cat="history">
-      <div class="card-top">
-        <span class="card-tag">역사/문화</span>
-        <span class="card-num">06</span>
-      </div>
-      <div class="card-title">영국 2차대전 탱크에는 홍차 끓이는 보일러가 내장돼 있었다</div>
-      <div class="card-hook-kr">"영국 탱크 안에 홍차 끓이는 보일러가 진짜 있다"</div>
-      <div class="card-hook-en">"British tanks had built-in kettles for making tea — even in the middle of battle"</div>
-      <div class="card-source">
-        <div class="source-icon">↗</div>
-        <a href="https://www.thefactsite.com/100-history-facts/" target="_blank">thefactsite.com</a>
-      </div>
-    </div>
-
-    <div class="card" data-cat="history">
-      <div class="card-top">
-        <span class="card-tag">역사/문화</span>
-        <span class="card-num">07</span>
-      </div>
-      <div class="card-title">케첩은 1830년대에 소화제로 약국에서 팔렸다</div>
-      <div class="card-hook-kr">"1830년대엔 케첩이 약국에서 팔렸다 — 소화제로"</div>
-      <div class="card-hook-en">"Ketchup was sold as medicine in the 1830s — for liver disease and indigestion"</div>
-      <div class="card-source">
-        <div class="source-icon">↗</div>
-        <a href="https://parade.com/1099930/marynliles/history-facts/" target="_blank">parade.com</a>
-      </div>
-    </div>
-
-    <!-- ══ 사람 이름 브랜드 ══ -->
-    <div class="card" data-cat="brand">
-      <div class="card-top">
-        <span class="card-tag">브랜드</span>
-        <span class="card-num">08</span>
-      </div>
-      <div class="card-title">람보르기니 — 페라리에게 무시당한 트랙터 회사 사장이 만든 차</div>
-      <div class="card-hook-kr">"람보르기니가 트랙터 회사에서 시작했다고? 이게 다 페라리 때문임"</div>
-      <div class="card-hook-en">"Lamborghini was created because Ferrari's founder insulted a tractor manufacturer"</div>
-      <div class="card-source">
-        <div class="source-icon">↗</div>
-        <a href="https://en.wikipedia.org/wiki/Ferruccio_Lamborghini" target="_blank">Wikipedia — Ferruccio Lamborghini</a>
-      </div>
-    </div>
-
-    <div class="card" data-cat="brand">
-      <div class="card-top">
-        <span class="card-tag">브랜드</span>
-        <span class="card-num">09</span>
-      </div>
-      <div class="card-title">나이키 로고(스우시)는 대학생이 35달러 받고 만들었다</div>
-      <div class="card-hook-kr">"나이키 로고가 35달러짜리였다고? 그리고 창업자는 '별로'라고 했음"</div>
-      <div class="card-hook-en">"The Nike Swoosh was made by a student for $35 — and the founder said 'I don't love it'"</div>
-      <div class="card-source">
-        <div class="source-icon">↗</div>
-        <a href="https://en.wikipedia.org/wiki/Swoosh" target="_blank">Wikipedia — Swoosh</a>
-      </div>
-    </div>
-
-    <div class="card" data-cat="brand">
-      <div class="card-top">
-        <span class="card-tag">브랜드</span>
-        <span class="card-num">10</span>
-      </div>
-      <div class="card-title">레고(LEGO)는 덴마크어로 "잘 논다"의 줄임말, 원래 나무 장난감 회사</div>
-      <div class="card-hook-kr">"레고가 원래 나무 장난감 회사였다고? 이름 뜻도 몰랐지?"</div>
-      <div class="card-hook-en">"LEGO means 'play well' in Danish — and they originally made wooden toys"</div>
-      <div class="card-source">
-        <div class="source-icon">↗</div>
-        <a href="https://www.lego.com/en-us/history" target="_blank">LEGO 공식 히스토리</a>
-      </div>
-    </div>
-
-    <div class="card" data-cat="brand">
-      <div class="card-top">
-        <span class="card-tag">브랜드</span>
-        <span class="card-num">11</span>
-      </div>
-      <div class="card-title">코카콜라 초기 제품에는 실제로 코카인 성분이 들어있었다</div>
-      <div class="card-hook-kr">"코카콜라에 코카인이 들어있었다고? 이거 실화임"</div>
-      <div class="card-hook-en">"Coca-Cola originally contained actual cocaine — and was sold as medicine"</div>
-      <div class="card-source">
-        <div class="source-icon">↗</div>
-        <a href="https://www.history.com/news/the-history-of-coca-cola" target="_blank">history.com</a>
-      </div>
-    </div>
-
-    <div class="card" data-cat="brand">
-      <div class="card-top">
-        <span class="card-tag">브랜드</span>
-        <span class="card-num">12</span>
-      </div>
-      <div class="card-title">질레트(Gillette) 창업자는 면도기 발명 전 병뚜껑 세일즈맨이었다</div>
-      <div class="card-hook-kr">"세계 최대 면도기 브랜드 창업자가 원래 병뚜껑 팔던 사람이었다고?"</div>
-      <div class="card-hook-en">"The founder of Gillette was a traveling bottle cap salesman before inventing the razor"</div>
-      <div class="card-source">
-        <div class="source-icon">↗</div>
-        <a href="https://en.wikipedia.org/wiki/King_C._Gillette" target="_blank">Wikipedia — King C. Gillette</a>
-      </div>
-    </div>
-
-    <div class="card" data-cat="brand">
-      <div class="card-top">
-        <span class="card-tag">브랜드</span>
-        <span class="card-num">13</span>
-      </div>
-      <div class="card-title">베스킨라빈스 창업자의 아들은 아이스크림에 반대하는 채식주의 활동가가 됐다</div>
-      <div class="card-hook-kr">"베스킨라빈스 창업자 아들이 아이스크림을 반대하는 채식주의자가 됐다고?"</div>
-      <div class="card-hook-en">"The son of Baskin-Robbins' co-founder became an anti-ice cream vegan activist"</div>
-      <div class="card-source">
-        <div class="source-icon">↗</div>
-        <a href="https://en.wikipedia.org/wiki/John_Robbins_(author)" target="_blank">Wikipedia — John Robbins</a>
-      </div>
-    </div>
-
-    <!-- ══ 특이한 건축물 ══ -->
-    <div class="card" data-cat="arch">
-      <div class="card-top">
-        <span class="card-tag">건축</span>
-        <span class="card-num">14</span>
-      </div>
-      <div class="card-title">인도 찬드 바오리 — 1,200년 전 건물인데 내부가 천연 에어컨</div>
-      <div class="card-hook-kr">"1,200년 전 에어컨도 없던 시대에 천연 냉방이 되는 건물이 있었다고?"</div>
-      <div class="card-hook-en">"Built 1,200 years ago — this Indian stepwell stays 5°C cooler than outside with no AC"</div>
-      <div class="card-source">
-        <div class="source-icon">↗</div>
-        <a href="https://en.wikipedia.org/wiki/Chand_Baori" target="_blank">Wikipedia — Chand Baori</a>
-      </div>
-    </div>
-
-    <div class="card" data-cat="arch">
-      <div class="card-top">
-        <span class="card-tag">건축</span>
-        <span class="card-num">15</span>
-      </div>
-      <div class="card-title">밀라노 수직 숲(보스코 버티칼레) — 아파트인데 나무 900그루</div>
-      <div class="card-hook-kr">"아파트인데 숲이야, 숲인데 아파트야? 밀라노의 실제 건물"</div>
-      <div class="card-hook-en">"This apartment building in Milan has 900 trees and 20,000 plants growing on it"</div>
-      <div class="card-source">
-        <div class="source-icon">↗</div>
-        <a href="https://www.stefanoboeriarchitetti.net/en/project/vertical-forest/" target="_blank">Boeri Architetti 공식</a>
-      </div>
-    </div>
-
-    <div class="card" data-cat="arch">
-      <div class="card-top">
-        <span class="card-tag">건축</span>
-        <span class="card-num">16</span>
-      </div>
-      <div class="card-title">크로아티아 자다르 바다 오르간 — 파도가 치면 음악이 나온다</div>
-      <div class="card-hook-kr">"바다가 음악을 연주하는 계단이 있다고? 이게 진짜 존재함"</div>
-      <div class="card-hook-en">"There's a staircase in Croatia where the sea literally plays music — waves included"</div>
-      <div class="card-source">
-        <div class="source-icon">↗</div>
-        <a href="https://www.zadar.travel/en/sea-organ" target="_blank">Zadar Tourism 공식</a>
-      </div>
-    </div>
-
-    <div class="card" data-cat="arch">
-      <div class="card-top">
-        <span class="card-tag">건축</span>
-        <span class="card-num">17</span>
-      </div>
-      <div class="card-title">도쿄 투명 공중화장실 — 낮엔 투명, 잠그면 불투명</div>
-      <div class="card-hook-kr">"도쿄에 들어가기 전까진 투명한 화장실이 있다고? 이거 실화임"</div>
-      <div class="card-hook-en">"Tokyo has a public toilet that's completely transparent — until you lock the door"</div>
-      <div class="card-source">
-        <div class="source-icon">↗</div>
-        <a href="https://tokyotoilet.jp/en/" target="_blank">Tokyo Toilet Project 공식</a>
-      </div>
-    </div>
-
-    <!-- ══ 신기한 제품 ══ -->
-    <div class="card" data-cat="product">
-      <div class="card-top">
-        <span class="card-tag">제품</span>
-        <span class="card-num">18</span>
-      </div>
-      <div class="card-title">셀카봉은 2000년대 발명이 아님 — 1925년에 이미 특허 등록</div>
-      <div class="card-hook-kr">"셀카봉이 100년 전 발명품이었다고? 진짜임"</div>
-      <div class="card-hook-en">"The selfie stick was patented in 1925 — almost 100 years before smartphones existed"</div>
-      <div class="card-source">
-        <div class="source-icon">↗</div>
-        <a href="https://www.smithsonianmag.com/smart-news/the-selfie-stick-was-invented-in-the-1920s-180954891/" target="_blank">Smithsonian Magazine</a>
-      </div>
-    </div>
-
-    <div class="card" data-cat="product">
-      <div class="card-top">
-        <span class="card-tag">제품</span>
-        <span class="card-num">19</span>
-      </div>
-      <div class="card-title">포르탈레지(Portaledge) — 수백 미터 절벽에 매달아서 자는 텐트</div>
-      <div class="card-hook-kr">"절벽에 매달려 자는 텐트가 진짜 팔린다고? 등반가들이 실제로 씀"</div>
-      <div class="card-hook-en">"This tent hangs off the side of a cliff — and people actually sleep in it hundreds of meters up"</div>
-      <div class="card-source">
-        <div class="source-icon">↗</div>
-        <a href="https://en.wikipedia.org/wiki/Portaledge" target="_blank">Wikipedia — Portaledge</a>
-      </div>
-    </div>
-
-    <!-- ══ 상식 뒤집기 ══ -->
-    <div class="card" data-cat="myth">
-      <div class="card-top">
-        <span class="card-tag">상식 뒤집기</span>
-        <span class="card-num">20</span>
-      </div>
-      <div class="card-title">나폴레옹은 키가 작지 않았다 — 당시 평균 이상</div>
-      <div class="card-hook-kr">"나폴레옹이 작다고? 그건 영국이 만든 프로파간다였다"</div>
-      <div class="card-hook-en">"Napoleon wasn't short — the 'short Napoleon' myth was British propaganda"</div>
-      <div class="card-source">
-        <div class="source-icon">↗</div>
-        <a href="https://www.history.com/news/napoleon-short-height-myth" target="_blank">history.com</a>
-      </div>
-    </div>
-
-    <div class="card" data-cat="myth">
-      <div class="card-top">
-        <span class="card-tag">상식 뒤집기</span>
-        <span class="card-num">21</span>
-      </div>
-      <div class="card-title">금붕어 기억력 3초는 거짓 — 실제로는 몇 달 기억</div>
-      <div class="card-hook-kr">"금붕어 기억력 3초? 그거 거짓말이었음"</div>
-      <div class="card-hook-en">"Goldfish don't have a 3-second memory — they can actually remember things for months"</div>
-      <div class="card-source">
-        <div class="source-icon">↗</div>
-        <a href="https://www.bbc.com/news/magazine-32713896" target="_blank">BBC News</a>
-      </div>
-    </div>
-
-    <div class="card" data-cat="myth">
-      <div class="card-top">
-        <span class="card-tag">상식 뒤집기</span>
-        <span class="card-num">22</span>
-      </div>
-      <div class="card-title">바이킹은 뿔 달린 투구를 쓰지 않았다 — 19세기 그림이 만든 이미지</div>
-      <div class="card-hook-kr">"바이킹 투구에 뿔이 없었다고? 우리가 속고 있었음"</div>
-      <div class="card-hook-en">"Vikings never wore horned helmets — that was invented by a 19th century costume designer"</div>
-      <div class="card-source">
-        <div class="source-icon">↗</div>
-        <a href="https://www.nationalgeographic.com/history/article/vikings-horned-helmets-myth" target="_blank">National Geographic</a>
-      </div>
-    </div>
-
-    <div class="card" data-cat="myth">
-      <div class="card-top">
-        <span class="card-tag">상식 뒤집기</span>
-        <span class="card-num">23</span>
-      </div>
-      <div class="card-title">타조는 모래에 머리를 박지 않는다 — 완전히 잘못된 상식</div>
-      <div class="card-hook-kr">"타조가 위험하면 모래에 머리 박는다고? 그거 거짓말임"</div>
-      <div class="card-hook-en">"Ostriches don't bury their heads in sand — that's completely false"</div>
-      <div class="card-source">
-        <div class="source-icon">↗</div>
-        <a href="https://www.snopes.com/fact-check/ostrich-head-sand/" target="_blank">Snopes</a>
-      </div>
-    </div>
-
-    <div class="card" data-cat="myth">
-      <div class="card-top">
-        <span class="card-tag">상식 뒤집기</span>
-        <span class="card-num">24</span>
-      </div>
-      <div class="card-title">영어 알파벳에 원래 'J'가 없었다 — 500년 전에 추가됨</div>
-      <div class="card-hook-kr">"영어 알파벳이 원래 25개였다고? J가 없었음"</div>
-      <div class="card-hook-en">"The English alphabet didn't always have the letter J — it was added just 500 years ago"</div>
-      <div class="card-source">
-        <div class="source-icon">↗</div>
-        <a href="https://www.mentalfloss.com/article/56363/dotting-our-i-and-crossing-our-j" target="_blank">Mental Floss</a>
-      </div>
-    </div>
-
-  </div><!-- /cards-grid -->
+  <div class="cards-grid" id="grid"></div>
 </main>
 
 <footer>
-  <div class="footer-left">FACT VAULT · 쇼츠 콘텐츠 DB</div>
-  <div class="footer-note">총 <span id="footer-count">24</span>개 팩트 · 출처 포함</div>
+  <div class="footer-left">FACT VAULT</div>
+  <div class="footer-note">총 <span id="footer-count">0</span>개 팩트 · 출처 포함</div>
 </footer>
 
 <script>
-  // 카운트
-  const cards = document.querySelectorAll('.card');
-  document.getElementById('total-count').textContent = cards.length;
-  document.getElementById('footer-count').textContent = cards.length;
+  const CAT_COLORS = {
+    history: '#ff3c5f',
+    brand:   '#ffcc00',
+    arch:    '#00e5ff',
+    product: '#7c5cff',
+    myth:    '#ff7c3c'
+  };
 
-  // 필터
+  let allFacts = [];
+
+  function buildCard(fact, index) {
+    const color = CAT_COLORS[fact.cat] || '#ff3c5f';
+    const num = String(index + 1).padStart(2, '0');
+    return `
+      <div class="card" data-cat="${fact.cat}" style="--cat-color:${color}; animation-delay:${index * 0.03}s">
+        <div class="card-top">
+          <span class="card-tag">${fact.catLabel}</span>
+          <span class="card-num">${num}</span>
+        </div>
+        <div class="card-title">${fact.title}</div>
+        <div class="card-hook-kr">"${fact.hookKR}"</div>
+        <div class="card-hook-en">"${fact.hookEN}"</div>
+        <div class="card-source">
+          <div class="source-icon">↗</div>
+          <a href="${fact.sourceUrl}" target="_blank">${fact.source}</a>
+        </div>
+      </div>`;
+  }
+
+  function render(facts) {
+    const grid = document.getElementById('grid');
+    grid.innerHTML = facts.map((f, i) => buildCard(f, i)).join('');
+    document.getElementById('total-count').textContent = allFacts.length;
+    document.getElementById('footer-count').textContent = allFacts.length;
+  }
+
   function filter(cat, btn) {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-    cards.forEach(c => {
-      if (cat === 'all' || c.dataset.cat === cat) {
-        c.classList.remove('hidden');
-      } else {
-        c.classList.add('hidden');
-      }
-    });
+    const filtered = cat === 'all' ? allFacts : allFacts.filter(f => f.cat === cat);
+    render(filtered);
   }
+
+  // facts.json 로드
+  fetch('facts.json')
+    .then(r => r.json())
+    .then(data => {
+      allFacts = data;
+      render(allFacts);
+    })
+    .catch(() => {
+      document.getElementById('grid').innerHTML =
+        '<p style="color:#888;padding:40px">facts.json을 불러올 수 없습니다.</p>';
+    });
 </script>
 </body>
 </html>
